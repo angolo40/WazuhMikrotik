@@ -3,7 +3,6 @@
 set 3 remote=xxx.xxx.xxx.xxx syslog-facility=syslog
 
 /system logging
-set 3 action=memory
 add action=remote disabled=no topics=account
 add action=remote disabled=no topics=info
 
