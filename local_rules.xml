@@ -1,0 +1,32 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<group name="local,syslog,sshd,">
+
+  <rule id="100001" level="12">
+    <decoded_as>UFL_login_failure</decoded_as>
+    <description>Mikrotik: user authentication failure</description>
+    <group>mikrotik,authentication_failed</group>
+  </rule>
+
+  <rule id="100002" level="12">
+    <decoded_as>UFL_login</decoded_as>
+    <description>Mikrotik: user authentication success</description>
+    <group>mikrotik,authentication_success</group>
+  </rule>
+
+  <rule id="100003" level="5">
+    <decoded_as>UFL_login_wireguard</decoded_as>
+    <description>Mikrotik: wireguard user logged in</description>
+    <group>mikrotik,authentication_success</group>
+  </rule>
+
+  <rule id="100004" level="5">
+    <decoded_as>UFL_logout_wireguard</decoded_as>
+    <description>Mikrotik: wireguard user logged out</description>
+    <group>mikrotik,authentication_success</group>
+  </rule>
+
+</group>
