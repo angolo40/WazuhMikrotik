@@ -16,10 +16,9 @@ https://wazuh.com/blog/how-to-configure-rsyslog-client-to-send-events-to-wazuh/
 
 👤 **Giuseppe Trifilio**
 
-* Website: https://github.com/angolo40/mikrocata2selks
+* Website: https://github.com/angolo40/WazuhMikrotik
 * Github: [@angolo40](https://github.com/angolo40)
-* Inspired by https://github.com/zzbe/mikrocata
-
+  
 ## 🤝 Contributing
 
 - Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/angolo40/mikrocata2selks).
