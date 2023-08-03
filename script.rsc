@@ -1,18 +1,9 @@
 # Configure persistent Log
 /system logging action
-set 1 disk-file-count=10 disk-file-name=log disk-lines-per-file=4096
 set 3 remote=xxx.xxx.xxx.xxx syslog-facility=syslog
-add email-start-tls=yes email-to=email@email.com name=email target=email
-add disk-file-count=100 disk-file-name=auth disk-lines-per-file=4096 name=auth target=disk
 
 /system logging
 set 3 action=memory
-add action=disk disabled=no topics=info
-add action=disk disabled=no topics=error
-add action=disk disabled=no topics=critical
-add action=disk disabled=no topics=warning
-add action=auth disabled=no topics=account
-add action=remote disabled=yes topics=!debug
 add action=remote disabled=no topics=account
 add action=remote disabled=no topics=info
 
