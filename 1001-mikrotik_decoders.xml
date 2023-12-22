@@ -21,3 +21,16 @@
     <regex>wireguard user (.*) logged out from (\S+)</regex>
     <order>username, srcip</order>
 </decoder>
+
+<decoder name="UFL_ovpn_in">
+    <prematch> \.+ logged in, \.+ from \S+</prematch>
+    <regex>(.*) logged in, (.*) from (\S+)</regex>
+    <order>username, srcip</order>
+</decoder>
+
+<decoder name="UFL_ovpn_out">
+    <prematch> \.+ logged out, \.+ from \S+</prematch>
+    <regex>(.*) logged out, (.*) from (\S+)</regex>
+    <order>username, srcip</order>
+</decoder>
+
