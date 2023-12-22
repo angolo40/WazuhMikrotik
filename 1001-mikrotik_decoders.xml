@@ -1,23 +1,23 @@
 <decoder name="UFL_login">
-    <prematch>user \S+ logged in from \S+ via </prematch>
-    <regex>user (\S+) logged in from (\S+) via </regex>
-    <order>user,srcip</order>
+  <prematch>user \S+ logged \S+ from \S+ via \S+</prematch>
+  <regex>user (\S+) logged (\S+) from (\S+) via (\S+)</regex>
+  <order>username, action, srcip, access_method</order>
 </decoder>
 
 <decoder name="UFL_login_failure">
-    <prematch>login failure for user \S+ from \S+ via </prematch>
-    <regex>login failure for user (\S+) from (\S+) via </regex>
-    <order>user,srcip</order>
+    <prematch>login failure for user \S+ from \S+ via \S+</prematch>
+    <regex>login failure for user (\S+) from (\S+) via (\S+)</regex>
+    <order>username, srcip, access_method</order>
 </decoder>
 
-<decoder name="UFL_login_wireguard">
+<decoder name="UFL_wireguard_in">
     <prematch>wireguard user \.+ logged in from \S+</prematch>
     <regex>wireguard user (.*) logged in from (\S+)</regex>
-    <order>user,srcip</order>
+    <order>username, srcip</order>
 </decoder>
 
-<decoder name="UFL_logout_wireguard">
+<decoder name="UFL_wireguard_out">
     <prematch>wireguard user \.+ logged out from \S+</prematch>
     <regex>wireguard user (.*) logged out from (\S+)</regex>
-    <order>user,srcip</order>
+    <order>username, srcip</order>
 </decoder>
