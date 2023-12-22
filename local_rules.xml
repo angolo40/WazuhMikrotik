@@ -1,3 +1,10 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example -->
+
 <group name="syslog,">
 
   <rule id="100001" level="12">
@@ -21,6 +28,18 @@
   <rule id="100004" level="5">
     <decoded_as>UFL_wireguard_out</decoded_as>
     <description>Mikrotik: wireguard user logged out</description>
+    <group>mikrotik,authentication_success</group>
+  </rule>
+
+  <rule id="100005" level="5">
+    <decoded_as>UFL_ovpn_in</decoded_as>
+    <description>Mikrotik: ovpn user logged in</description>
+    <group>mikrotik,authentication_success</group>
+  </rule>
+
+  <rule id="100006" level="5">
+    <decoded_as>UFL_ovpn_out</decoded_as>
+    <description>Mikrotik: ovpn user logged out</description>
     <group>mikrotik,authentication_success</group>
   </rule>
 
