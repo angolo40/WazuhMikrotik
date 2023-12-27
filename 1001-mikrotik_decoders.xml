@@ -34,3 +34,62 @@
     <order>username, srcip</order>
 </decoder>
 
+<decoder name="mikrotik-filter-rule-change">
+  <prematch>filter rule changed by</prematch>
+  <regex type="pcre2">filter rule changed by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-filter-rule-removed">
+  <prematch>filter rule removed by</prematch>
+  <regex type="pcre2">filter rule removed by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-filter-rule-added">
+  <prematch>filter rule added by</prematch>
+  <regex type="pcre2">filter rule added by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-raw-rule-change">
+  <prematch>raw rule changed by</prematch>
+  <regex type="pcre2">raw rule changed by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-raw-rule-removed">
+  <prematch>raw rule removed by</prematch>
+  <regex type="pcre2">raw rule removed by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-raw-rule-added">
+  <prematch>raw rule added by</prematch>
+  <regex type="pcre2">raw rule added by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-user-added">
+  <prematch>user (\S+) added by</prematch>
+  <regex type="pcre2">user (\S+) added by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>newuser, username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-user-password-changed">
+  <prematch>user (\S+) password changed by (\S+)</prematch>
+  <regex type="pcre2">user (\S+) password changed by (\S+)</regex>
+  <order>newuser, username</order>
+</decoder>
+
+<decoder name="mikrotik-user-removed">
+  <prematch>user (\S+) removed by</prematch>
+  <regex type="pcre2">user (\S+) removed by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>newuser, username, srcip, rule_details</order>
+</decoder>
+
+<decoder name="mikrotik-log">
+  <prematch>(\S+) (\S+) (\S+) by</prematch>
+  <regex type="pcre2">(\S+) (\S+) (\S+) by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>type, target, action, username, srcip, rule_details</order>
+</decoder>
