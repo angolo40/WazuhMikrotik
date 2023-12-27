@@ -7,13 +7,14 @@ Script for monitoring Wireguard peers login/logout and send data to wazuh syslog
 https://wazuh.com/blog/how-to-configure-rsyslog-client-to-send-events-to-wazuh/
 
 - Copy 1001-mikrotik_decoders.xml in /var/ossec/etc/decoders/1001-mikrotik_decoders.xml
-- - If you use docker run
+- - If you use docker run:
   - docker cp /root/1001-mikrotik_decoders.xml single-node-wazuh.manager-1:/var/ossec/etc/decoders/1001-mikrotik_decoders.xml
 - Copy local_rules.xml in /var/ossec/etc/rules/local_rules.xml
-- - If you use docker run
+- - If you use docker run:
   - docker cp /root/local_rules.xml single-node-wazuh.manager-1:/var/ossec/etc/rules/local_rules.xml
 - Restart Wazuh
-- - docker restart single-node-wazuh.manager-1
+- - If you use docker run:
+  - docker restart single-node-wazuh.manager-1
 - Configure Mikrotik to send logs to syslog server (Wazuh)
 - Create script on mikrotik to monitoring wireguard peers activity and schedule it for running every 30sec
 
