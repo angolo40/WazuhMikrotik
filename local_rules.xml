@@ -43,4 +43,54 @@
     <group>mikrotik,authentication_success</group>
   </rule>
 
+  <rule id="100401" level="10">
+    <decoded_as>mikrotik-filter-rule-change</decoded_as>
+    <description>MikroTik Filter Rule Changed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  </rule>
+
+  <rule id="100402" level="10">
+    <decoded_as>mikrotik-filter-rule-removed</decoded_as>
+    <description>MikroTik Filter Rule Removed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  </rule>
+
+  <rule id="100403" level="10">
+    <decoded_as>mikrotik-filter-rule-added</decoded_as>
+    <description>MikroTik Filter Rule Added: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  </rule>
+
+  <rule id="100404" level="10">
+    <decoded_as>mikrotik-raw-rule-change</decoded_as>
+    <description>MikroTik Raw Rule Changed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  </rule>
+
+  <rule id="100405" level="10">
+    <decoded_as>mikrotik-raw-rule-removed</decoded_as>
+    <description>MikroTik Raw Rule Removed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  </rule>
+
+  <rule id="100406" level="10">
+    <decoded_as>mikrotik-raw-rule-added</decoded_as>
+    <description>MikroTik Raw Rule Added: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  </rule>
+
+  <rule id="100412" level="5">
+    <decoded_as>mikrotik-user-added</decoded_as>
+    <description>MikroTik User Added: New User $(newuser), Username $(username), Src IP $(srcip), Details $(rule_details)</description>
+  </rule>
+
+  <rule id="100411" level="5">
+    <decoded_as>mikrotik-user-password-changed</decoded_as>
+    <description>MikroTik User Password Changed: User $(newuser), Username $(username)</description>
+  </rule>
+
+  <rule id="100413" level="5">
+    <decoded_as>mikrotik-user-removed</decoded_as>
+    <description>MikroTik User Removed: User $(newuser), Username $(username), Src IP $(srcip), Details $(rule_details)</description>
+  </rule>
+
+  <rule id="100420" level="5">
+    <decoded_as>mikrotik-log</decoded_as>
+    <description>MikroTik Log: Type: $(type), Action $(action), Target $(target), Username $(username), Src IP $(srcip), Details $(details)</description>
+  </rule>
+
 </group>
