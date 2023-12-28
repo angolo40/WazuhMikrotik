@@ -21,19 +21,19 @@
 
   <rule id="100003" level="5">
     <decoded_as>UFL_wireguard_in</decoded_as>
-    <description>Mikrotik: wireguard user logged in</description>
+    <description>Mikrotik: wireguard user $(username) logged in from $(srcip)</description>
     <group>mikrotik,authentication_success</group>
   </rule>
 
   <rule id="100004" level="5">
     <decoded_as>UFL_wireguard_out</decoded_as>
-    <description>Mikrotik: wireguard user logged out</description>
+    <description>Mikrotik: wireguard user $(username) logged out</description>
     <group>mikrotik,authentication_success</group>
   </rule>
 
   <rule id="100005" level="5">
     <decoded_as>UFL_ovpn_in</decoded_as>
-    <description>Mikrotik: ovpn user logged in</description>
+    <description>Mikrotik: ovpn user $(username) logged in from $(srcip)</description>
     <group>mikrotik,authentication_success</group>
   </rule>
 
