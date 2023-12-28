@@ -1,96 +1,41 @@
-<!-- Local rules -->
-
-<!-- Modify it at your will. -->
-<!-- Copyright (C) 2015, Wazuh Inc. -->
-
-<!-- Example -->
-
-<group name="syslog,">
-
-  <rule id="100001" level="12">
-    <decoded_as>UFL_login</decoded_as>
-    <description>Mikrotik: user authentication</description>
-    <group>mikrotik,authentication_success</group>
+<group name="mikrotik">
+  <rule id="100001" level="10">
+    <decoded_as>mikrotik_log</decoded_as>
+    <description>Mikrotik log: $(type) $(target) $(action) by $(username) from $(srcip): $(rule_details)</description>
   </rule>
-
+  
   <rule id="100002" level="12">
-    <decoded_as>UFL_login_failure</decoded_as>
-    <description>Mikrotik: user authentication failure</description>
-    <group>mikrotik,authentication_failed</group>
+    <decoded_as>user_login</decoded_as>
+    <description>Mikrotik log: User $(username) logged $(action) from $(srcip) via $(access_method)</description>
+  </rule>
+  
+  <rule id="100003" level="11">
+    <decoded_as>user_login_failure</decoded_as>
+    <description>Mikrotik log: Login failure for user $(username) from $(srcip) via $(access_method)</description>
   </rule>
 
-  <rule id="100003" level="5">
-    <decoded_as>UFL_wireguard_in</decoded_as>
-    <description>Mikrotik: wireguard user $(username) logged in from $(srcip)</description>
-    <group>mikrotik,authentication_success</group>
+  <rule id="100004" level="10">
+    <decoded_as>wireguard</decoded_as>
+    <description>Mikrotik log: Wireguard user $(username) logged $(action) from $(srcip)</description>
   </rule>
 
-  <rule id="100004" level="5">
-    <decoded_as>UFL_wireguard_out</decoded_as>
-    <description>Mikrotik: wireguard user $(username) logged out</description>
-    <group>mikrotik,authentication_success</group>
+  <rule id="100005" level="10">
+    <decoded_as>ovpn</decoded_as>
+    <description>Mikrotik log: $(action) logged, $(localip) from $(srcip)</description>
   </rule>
 
-  <rule id="100005" level="5">
-    <decoded_as>UFL_ovpn_in</decoded_as>
-    <description>Mikrotik: ovpn user $(username) logged in from $(srcip)</description>
-    <group>mikrotik,authentication_success</group>
+  <rule id="100006" level="12">
+    <decoded_as>filter_rule_change</decoded_as>
+    <description>Mikrotik log: Filter rule $(action) by $(username) from $(srcip): $(rule_details)</description>
   </rule>
 
-  <rule id="100006" level="5">
-    <decoded_as>UFL_ovpn_out</decoded_as>
-    <description>Mikrotik: ovpn user logged out</description>
-    <group>mikrotik,authentication_success</group>
+  <rule id="100007" level="12">
+    <decoded_as>raw_rule_change</decoded_as>
+    <description>Mikrotik log: Raw rule $(action) by $(username) from $(srcip): $(rule_details)</description>
   </rule>
 
-  <rule id="100401" level="10">
-    <decoded_as>mikrotik-filter-rule-change</decoded_as>
-    <description>MikroTik Filter Rule Changed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
+  <rule id="100008" level="12">
+    <decoded_as>user_change</decoded_as>
+    <description>Mikrotik log: User $(newuser) $(action) by $(username) from $(srcip): $(rule_details)</description>
   </rule>
-
-  <rule id="100402" level="10">
-    <decoded_as>mikrotik-filter-rule-removed</decoded_as>
-    <description>MikroTik Filter Rule Removed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
-  </rule>
-
-  <rule id="100403" level="10">
-    <decoded_as>mikrotik-filter-rule-added</decoded_as>
-    <description>MikroTik Filter Rule Added: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
-  </rule>
-
-  <rule id="100404" level="10">
-    <decoded_as>mikrotik-raw-rule-change</decoded_as>
-    <description>MikroTik Raw Rule Changed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
-  </rule>
-
-  <rule id="100405" level="10">
-    <decoded_as>mikrotik-raw-rule-removed</decoded_as>
-    <description>MikroTik Raw Rule Removed: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
-  </rule>
-
-  <rule id="100406" level="10">
-    <decoded_as>mikrotik-raw-rule-added</decoded_as>
-    <description>MikroTik Raw Rule Added: Username $(username), Src IP $(srcip), Rule: $(rule_details)</description>
-  </rule>
-
-  <rule id="100412" level="5">
-    <decoded_as>mikrotik-user-added</decoded_as>
-    <description>MikroTik User Added: New User $(newuser), Username $(username), Src IP $(srcip), Details $(rule_details)</description>
-  </rule>
-
-  <rule id="100411" level="5">
-    <decoded_as>mikrotik-user-password-changed</decoded_as>
-    <description>MikroTik User Password Changed: User $(newuser), Username $(username)</description>
-  </rule>
-
-  <rule id="100413" level="5">
-    <decoded_as>mikrotik-user-removed</decoded_as>
-    <description>MikroTik User Removed: User $(newuser), Username $(username), Src IP $(srcip), Details $(rule_details)</description>
-  </rule>
-
-  <rule id="100420" level="5">
-    <decoded_as>mikrotik-log</decoded_as>
-    <description>MikroTik Log: Type: $(type), Action $(action), Target $(target), Username $(username), Src IP $(srcip), Details $(details)</description>
-  </rule>
-
 </group>
