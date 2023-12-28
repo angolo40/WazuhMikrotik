@@ -1,6 +1,8 @@
 # WazuhMikrotik
-Script for monitoring Wireguard peers login/logout and send data to wazuh syslog server
+- Wazuh decoders for mikrotik
+- Script for monitoring Wireguard peers login/logout
 
+Tested on RouterOS 7.12 and Wazuh 4.7.1
 
 ## Steps
 - Configure Wazuh manager to receive Syslog messages:
