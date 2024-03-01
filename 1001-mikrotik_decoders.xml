@@ -16,16 +16,22 @@
   <order>username, action, srcip</order>
 </decoder>
 
-<decoder name="ovpn">
+<decoder name="vpn">
   <prematch>(\S+) logged (\S+), (\S+) from (\S+)</prematch>
   <regex type="pcre2">(\S+) logged (\S+), (\S+) from (\S+)</regex>
   <order>username, action, localip, srcip</order>
 </decoder>
 
+<decoder name="vpn_login_failure">
+  <prematch>\S(\d+.\d+.\d+.\d+)\S: user (\S+) authentication failed</prematch>
+  <regex type="pcre2">\S(\d+.\d+.\d+.\d+)\S: user (\S+) authentication failed</regex>
+  <order>srcip, username</order>
+</decoder>
+
 <decoder name="filter_rule_change">
   <prematch type="pcre2">filter rule (changed|removed|added) by</prematch>
-  <regex type="pcre2">filter rule (changed|removed|added) by tcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
-  <order>action, username, srcip, rule_details</order>
+  <regex type="pcre2">filter rule (changed|removed|added) by (\S+)\Stcp-msg\(winbox\):(\S+)@(\S+) \((.*)\)</regex>
+  <order>action, srcprogram, username, srcip, rule_details</order>
 </decoder>
 
 <decoder name="raw_rule_change">
