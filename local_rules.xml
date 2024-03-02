@@ -20,10 +20,15 @@
   </rule>
 
   <rule id="100005" level="10">
-    <decoded_as>ovpn</decoded_as>
+    <decoded_as>vpn</decoded_as>
     <description>Mikrotik log: $(action) logged, $(localip) from $(srcip)</description>
   </rule>
-
+  
+  <rule id="100009" level="12">
+    <decoded_as>vpn_login_failure</decoded_as>
+    <description>Mikrotik log: $(username) failed to authenticate from $(srcip)</description>
+  </rule>
+  
   <rule id="100006" level="12">
     <decoded_as>filter_rule_change</decoded_as>
     <description>Mikrotik log: Filter rule $(action) by $(username) from $(srcip): $(rule_details)</description>
